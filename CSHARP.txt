@@ -1,1 +1,2 @@
 First day training is done
+Trying to pull this to local repository
