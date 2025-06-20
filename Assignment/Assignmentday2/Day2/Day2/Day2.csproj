@@ -51,6 +51,9 @@
     <Compile Include="Question4.cs" />
     <Compile Include="Question5.cs" />
     <Compile Include="Question6.cs" />
+    <Compile Include="Question7.cs" />
+    <Compile Include="Question8.cs" />
+    <Compile Include="Question9.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
