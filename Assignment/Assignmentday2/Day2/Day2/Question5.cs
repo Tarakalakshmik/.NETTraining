@@ -37,6 +37,7 @@ namespace Day2
             {
                 Console.Write(x + " ");
             }
+            Console.WriteLine();
         }
     }
 }
