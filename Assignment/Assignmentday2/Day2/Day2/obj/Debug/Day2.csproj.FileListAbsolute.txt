@@ -1,0 +1,7 @@
+C:\Users\tarakal\Documents\.NetTraining\Assignment\Assignmentday2\Day2\Day2\bin\Debug\Day2.exe.config
+C:\Users\tarakal\Documents\.NetTraining\Assignment\Assignmentday2\Day2\Day2\bin\Debug\Day2.exe
+C:\Users\tarakal\Documents\.NetTraining\Assignment\Assignmentday2\Day2\Day2\bin\Debug\Day2.pdb
+C:\Users\tarakal\Documents\.NetTraining\Assignment\Assignmentday2\Day2\Day2\obj\Debug\Day2.csproj.AssemblyReference.cache
+C:\Users\tarakal\Documents\.NetTraining\Assignment\Assignmentday2\Day2\Day2\obj\Debug\Day2.csproj.CoreCompileInputs.cache
+C:\Users\tarakal\Documents\.NetTraining\Assignment\Assignmentday2\Day2\Day2\obj\Debug\Day2.exe
+C:\Users\tarakal\Documents\.NetTraining\Assignment\Assignmentday2\Day2\Day2\obj\Debug\Day2.pdb
