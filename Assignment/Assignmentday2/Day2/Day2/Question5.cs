@@ -25,6 +25,7 @@ namespace Day2
             Console.WriteLine("Average is {0} ", arr.Average());
             Console.WriteLine("Maximum number is {0}", arr.Max());
             Console.WriteLine("Minimum number is {0}", arr.Min());
+            
             Array.Sort(arr);
             Console.WriteLine("Ascending order");
             foreach(int x in arr)
