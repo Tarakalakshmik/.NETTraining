@@ -1,0 +1,7 @@
+C:\Users\tarakal\Documents\.NetTraining\CSHARP\Coding challenge\CC1\CC1\bin\Debug\CC1.exe.config
+C:\Users\tarakal\Documents\.NetTraining\CSHARP\Coding challenge\CC1\CC1\bin\Debug\CC1.exe
+C:\Users\tarakal\Documents\.NetTraining\CSHARP\Coding challenge\CC1\CC1\bin\Debug\CC1.pdb
+C:\Users\tarakal\Documents\.NetTraining\CSHARP\Coding challenge\CC1\CC1\obj\Debug\CC1.csproj.AssemblyReference.cache
+C:\Users\tarakal\Documents\.NetTraining\CSHARP\Coding challenge\CC1\CC1\obj\Debug\CC1.csproj.CoreCompileInputs.cache
+C:\Users\tarakal\Documents\.NetTraining\CSHARP\Coding challenge\CC1\CC1\obj\Debug\CC1.exe
+C:\Users\tarakal\Documents\.NetTraining\CSHARP\Coding challenge\CC1\CC1\obj\Debug\CC1.pdb
