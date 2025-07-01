@@ -1,0 +1,7 @@
+C:\Users\tarakal\source\repos\Day7task\Day7task\bin\Debug\Day7task.exe.config
+C:\Users\tarakal\source\repos\Day7task\Day7task\bin\Debug\Day7task.exe
+C:\Users\tarakal\source\repos\Day7task\Day7task\bin\Debug\Day7task.pdb
+C:\Users\tarakal\source\repos\Day7task\Day7task\obj\Debug\Day7task.csproj.AssemblyReference.cache
+C:\Users\tarakal\source\repos\Day7task\Day7task\obj\Debug\Day7task.csproj.CoreCompileInputs.cache
+C:\Users\tarakal\source\repos\Day7task\Day7task\obj\Debug\Day7task.exe
+C:\Users\tarakal\source\repos\Day7task\Day7task\obj\Debug\Day7task.pdb
