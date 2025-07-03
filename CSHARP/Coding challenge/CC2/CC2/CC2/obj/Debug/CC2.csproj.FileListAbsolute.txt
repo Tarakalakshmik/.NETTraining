@@ -1,0 +1,7 @@
+C:\Users\tarakal\Documents\.NetTraining\CSHARP\Coding challenge\CC2\CC2\CC2\bin\Debug\CC2.exe.config
+C:\Users\tarakal\Documents\.NetTraining\CSHARP\Coding challenge\CC2\CC2\CC2\bin\Debug\CC2.exe
+C:\Users\tarakal\Documents\.NetTraining\CSHARP\Coding challenge\CC2\CC2\CC2\bin\Debug\CC2.pdb
+C:\Users\tarakal\Documents\.NetTraining\CSHARP\Coding challenge\CC2\CC2\CC2\obj\Debug\CC2.csproj.AssemblyReference.cache
+C:\Users\tarakal\Documents\.NetTraining\CSHARP\Coding challenge\CC2\CC2\CC2\obj\Debug\CC2.csproj.CoreCompileInputs.cache
+C:\Users\tarakal\Documents\.NetTraining\CSHARP\Coding challenge\CC2\CC2\CC2\obj\Debug\CC2.exe
+C:\Users\tarakal\Documents\.NetTraining\CSHARP\Coding challenge\CC2\CC2\CC2\obj\Debug\CC2.pdb
