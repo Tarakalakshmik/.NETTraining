@@ -1,0 +1,5 @@
+C:\Users\tarakal\source\repos\Assignment7\Travel_concess_lib\bin\Debug\Travel_concess_lib.dll
+C:\Users\tarakal\source\repos\Assignment7\Travel_concess_lib\bin\Debug\Travel_concess_lib.pdb
+C:\Users\tarakal\source\repos\Assignment7\Travel_concess_lib\obj\Debug\Travel_concess_lib.csproj.CoreCompileInputs.cache
+C:\Users\tarakal\source\repos\Assignment7\Travel_concess_lib\obj\Debug\Travel_concess_lib.dll
+C:\Users\tarakal\source\repos\Assignment7\Travel_concess_lib\obj\Debug\Travel_concess_lib.pdb
