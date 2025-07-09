@@ -1,0 +1,7 @@
+C:\Users\tarakal\Documents\practice\Remoting\CodingChallenge3\CodingChallenge3\bin\Debug\CodingChallenge3.exe.config
+C:\Users\tarakal\Documents\practice\Remoting\CodingChallenge3\CodingChallenge3\bin\Debug\CodingChallenge3.exe
+C:\Users\tarakal\Documents\practice\Remoting\CodingChallenge3\CodingChallenge3\bin\Debug\CodingChallenge3.pdb
+C:\Users\tarakal\Documents\practice\Remoting\CodingChallenge3\CodingChallenge3\obj\Debug\CodingChallenge3.csproj.AssemblyReference.cache
+C:\Users\tarakal\Documents\practice\Remoting\CodingChallenge3\CodingChallenge3\obj\Debug\CodingChallenge3.csproj.CoreCompileInputs.cache
+C:\Users\tarakal\Documents\practice\Remoting\CodingChallenge3\CodingChallenge3\obj\Debug\CodingChallenge3.exe
+C:\Users\tarakal\Documents\practice\Remoting\CodingChallenge3\CodingChallenge3\obj\Debug\CodingChallenge3.pdb
