@@ -1,0 +1,7 @@
+C:\Users\tarakal\Documents\.NetTraining\SQL\Coding Challenge\CC4 CSHARP\CC4 CSHARP\bin\Debug\CC4 CSHARP.exe.config
+C:\Users\tarakal\Documents\.NetTraining\SQL\Coding Challenge\CC4 CSHARP\CC4 CSHARP\bin\Debug\CC4 CSHARP.exe
+C:\Users\tarakal\Documents\.NetTraining\SQL\Coding Challenge\CC4 CSHARP\CC4 CSHARP\bin\Debug\CC4 CSHARP.pdb
+C:\Users\tarakal\Documents\.NetTraining\SQL\Coding Challenge\CC4 CSHARP\CC4 CSHARP\obj\Debug\CC4 CSHARP.csproj.AssemblyReference.cache
+C:\Users\tarakal\Documents\.NetTraining\SQL\Coding Challenge\CC4 CSHARP\CC4 CSHARP\obj\Debug\CC4 CSHARP.csproj.CoreCompileInputs.cache
+C:\Users\tarakal\Documents\.NetTraining\SQL\Coding Challenge\CC4 CSHARP\CC4 CSHARP\obj\Debug\CC4 CSHARP.exe
+C:\Users\tarakal\Documents\.NetTraining\SQL\Coding Challenge\CC4 CSHARP\CC4 CSHARP\obj\Debug\CC4 CSHARP.pdb
