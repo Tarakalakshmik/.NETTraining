@@ -40,27 +40,25 @@ select * from employee
 --	b.     For Deptno 20 employees  20% of sal as bonus
 --	c      For Others employees 5%of sal as bonus
 
- create or alter function fn_calcbonus(@deptno int, @salary int)
+ create or alter function fn_bonu(@deptno int, @salary int)
 returns int
 as begin
-	declare @bonus int
- 
-    if @deptno = 10
-	begin
-        set @bonus = @salary * 0.15
-    end
-	else if @deptno = 20
-	begin
-        set @bonus = @salary * 0.20
-    end
-	else
-	begin
-        set @bonus = @salary * 0.05
-	end
+declare @bonus int
+ if @deptno = 10 
+ begin set @bonus = @salary*0.15
+ end
+else if @deptno =20
+begin
+set @bonus = @salary*0.20
+end
+else
+begin
+set @bonus =@salary*0.05
+end
     return @bonus
 end
  
-select empno 'Employee Id', ename 'Employee Name', deptno 'Department No', Salary, dbo.fn_calcbonus(deptno, salary) 'Bonus' from emp
+select empno 'Employee Id', ename 'Employee Name', deptno 'Department No', Salary, dbo.fn_bonus(deptno, salary) 'Bonus' from emp
  
  
  --6. Create a procedure to update the salary of employee by 500 whose dept name is Sales and current salary is below 1500 (use emp table)
