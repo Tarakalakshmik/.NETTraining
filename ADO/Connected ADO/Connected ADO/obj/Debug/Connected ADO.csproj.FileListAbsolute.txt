@@ -1,0 +1,7 @@
+C:\Users\tarakal\Documents\.NetTraining\ADO\Connected ADO\Connected ADO\obj\Debug\Connected ADO.csproj.AssemblyReference.cache
+C:\Users\tarakal\Documents\.NetTraining\ADO\Connected ADO\Connected ADO\obj\Debug\Connected ADO.csproj.CoreCompileInputs.cache
+C:\Users\tarakal\Documents\.NetTraining\ADO\Connected ADO\Connected ADO\bin\Debug\Connected ADO.exe.config
+C:\Users\tarakal\Documents\.NetTraining\ADO\Connected ADO\Connected ADO\bin\Debug\Connected ADO.exe
+C:\Users\tarakal\Documents\.NetTraining\ADO\Connected ADO\Connected ADO\bin\Debug\Connected ADO.pdb
+C:\Users\tarakal\Documents\.NetTraining\ADO\Connected ADO\Connected ADO\obj\Debug\Connected ADO.exe
+C:\Users\tarakal\Documents\.NetTraining\ADO\Connected ADO\Connected ADO\obj\Debug\Connected ADO.pdb
