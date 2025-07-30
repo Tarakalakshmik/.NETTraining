@@ -1,0 +1,7 @@
+C:\Users\tarakal\Documents\.NetTraining\ADO\CODING CHALLENGE\CC6\CC6\bin\Debug\CC6.exe.config
+C:\Users\tarakal\Documents\.NetTraining\ADO\CODING CHALLENGE\CC6\CC6\bin\Debug\CC6.exe
+C:\Users\tarakal\Documents\.NetTraining\ADO\CODING CHALLENGE\CC6\CC6\bin\Debug\CC6.pdb
+C:\Users\tarakal\Documents\.NetTraining\ADO\CODING CHALLENGE\CC6\CC6\obj\Debug\CC6.csproj.AssemblyReference.cache
+C:\Users\tarakal\Documents\.NetTraining\ADO\CODING CHALLENGE\CC6\CC6\obj\Debug\CC6.csproj.CoreCompileInputs.cache
+C:\Users\tarakal\Documents\.NetTraining\ADO\CODING CHALLENGE\CC6\CC6\obj\Debug\CC6.exe
+C:\Users\tarakal\Documents\.NetTraining\ADO\CODING CHALLENGE\CC6\CC6\obj\Debug\CC6.pdb
