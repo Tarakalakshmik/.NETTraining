@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <!--<h1>Java Script</h1>
+    <p id="n1">Java script can change HTML doc</p>
+    <p id="str">Persons name</p>
+    <p id="obj">Object Data</p>
+    <script>
+        var length = 0;
+        var pname = "Dr.Abdul Kalam";
+        var obj = { firstname: "Infinite.ltd", age: 20 };
+        //document.getElementById("n1").innerHTML = length;
+        //document.getElementById("str").innerHTML = pname;
+        //document.getElementById("obj").innerHTML = ob.firstname + " " + ob.age;
+    </script>
+    <button type="button" onclick="document.getElementById('n1').innerHTML=length">Num change</button>
+    <button type="button" onclick="document.getElementById('str').innerHTML=pname">Get Name</button>
+    <button type="button" onclick="document.getElementById('obj').innerHTML=ob.firstname+ob.age">Get object</button>-->
+    <input id="userinput" size="40" />
+    <button ondblclick="userSubmit()">Submit</button>
+    <br />
+    <div id="results">
+        <script type="text/javascript">
+            function userSubmit() {
+                var ui = document.getElementById('userinput').value;
+                document.getElementById('results').innerText= "You Typed :" + ui;
+            }
+        </script>
+    </div>
+</body>
+</html>

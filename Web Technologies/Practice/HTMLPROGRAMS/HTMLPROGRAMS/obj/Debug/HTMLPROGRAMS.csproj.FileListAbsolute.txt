@@ -1,0 +1,7 @@
+C:\Users\tarakal\Documents\.NetTraining\Web Technologies\Practice\HTMLPROGRAMS\HTMLPROGRAMS\bin\Debug\HTMLPROGRAMS.exe.config
+C:\Users\tarakal\Documents\.NetTraining\Web Technologies\Practice\HTMLPROGRAMS\HTMLPROGRAMS\bin\Debug\HTMLPROGRAMS.exe
+C:\Users\tarakal\Documents\.NetTraining\Web Technologies\Practice\HTMLPROGRAMS\HTMLPROGRAMS\bin\Debug\HTMLPROGRAMS.pdb
+C:\Users\tarakal\Documents\.NetTraining\Web Technologies\Practice\HTMLPROGRAMS\HTMLPROGRAMS\obj\Debug\HTMLPROGRAMS.csproj.AssemblyReference.cache
+C:\Users\tarakal\Documents\.NetTraining\Web Technologies\Practice\HTMLPROGRAMS\HTMLPROGRAMS\obj\Debug\HTMLPROGRAMS.csproj.CoreCompileInputs.cache
+C:\Users\tarakal\Documents\.NetTraining\Web Technologies\Practice\HTMLPROGRAMS\HTMLPROGRAMS\obj\Debug\HTMLPROGRAMS.exe
+C:\Users\tarakal\Documents\.NetTraining\Web Technologies\Practice\HTMLPROGRAMS\HTMLPROGRAMS\obj\Debug\HTMLPROGRAMS.pdb
