@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Odd and Even</title>
+</head>
+<body>
+    <h2>Odd or Even Numbers</h2>
+    <div id="output"></div>
+
+    <script>
+        const output = document.getElementById("output");
+        let result = "";
+        for (let i = 0; i <= 15; i++) {
+            if (i % 2 == 0) {
+                
+                result += i + " is even number<br>";
+                
+            }
+            else {
+                result += i + " is odd number<br>";
+                
+            }
+            
+            output.innerHTML = result;
+
+            document.getElementById("output").innerHTML = result;
+        }
+    </script>
+</body>
+</html>
+
+
+

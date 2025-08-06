@@ -1,0 +1,4 @@
+﻿<h1>This is an example for Jqury with AJAX!!</h1>
+<div id='d1'>What a wonderful Combination
+<p id='p1'>This is a paragraph element of HTML</p>
+</div>

@@ -54,8 +54,11 @@
     <Content Include="Assignment1.html" />
     <Content Include="Canvas.html" />
     <Content Include="Column.html" />
+    <Content Include="datafile.txt" />
     <Content Include="Form.html" />
+    <Content Include="formvalidation.html" />
     <Content Include="HTMLPage1.html" />
+    <Content Include="jquery_with_ajax.html" />
     <Content Include="Registration.html" />
     <Content Include="SVG2.html" />
   </ItemGroup>

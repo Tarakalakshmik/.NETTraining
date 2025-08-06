@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Calculator</title>
+</head>
+<body>
+    <h2>Multiplication and Division</h2>
+    <h3>Enter first number:</h3>
+    <input type="number" id="num1" ><br><br>
+
+    <h2>Enter second number:</h2>
+    <input type="number" id="num2" ><br><br>
+
+    <button onclick="calculate()">Calculate</button>
+
+    <h3>Results:</h3>
+    <p id="Multiplication"></p>
+    <p id="Division"></p>
+
+    <script>
+        function calculate() {
+            const num1 = document.getElementById("num1").value;
+            const num2 = document.getElementById("num2").value;
+
+            const multiplication = num1 * num2;
+            const division = num2 !== 0 ? num1 / num2 : "Cannot divide by zero";
+
+            document.getElementById("Multiplication").innerHTML = "Multiplication: " + multiplication;
+            document.getElementById("Division").innerHTML = "Division: " + division;
+        }
+    </script>
+</body>
+</html>
+
+
+
+

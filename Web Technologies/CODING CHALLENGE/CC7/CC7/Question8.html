@@ -1,0 +1,25 @@
+﻿<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Input Change Message</title>
+
+    <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-3.4.1.min.js"></script>
+    <script src="https://googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+<body>
+
+    <div id="message"></div>
+
+    <label>Enter some Data:</label>
+    <input type="text" id="myInput" value="original" />
+
+    <script>
+        $("#myInput").on("change", function () {
+            $("#message").html("<p>Input field is changed</p>");
+        });
+    </script>
+
+    <button>Click after changing text</button>
+</body>
+</html>
