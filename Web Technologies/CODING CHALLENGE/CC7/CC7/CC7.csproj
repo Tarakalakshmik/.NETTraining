@@ -49,5 +49,14 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="Question1.html" />
+    <Content Include="Question2.html" />
+    <Content Include="Question3.html" />
+    <Content Include="Question4.html" />
+    <Content Include="Question5.html" />
+    <Content Include="Question6.html" />
+    <Content Include="Question8.html" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
