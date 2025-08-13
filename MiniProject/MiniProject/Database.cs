@@ -165,27 +165,7 @@ namespace MiniProject
 
 
 
-        //public void ViewTicketDetails(int customerId)
-        //{
-        //    using (SqlConnection conn = new SqlConnection(connectionString))
-        //    {
-        //        string query = "SELECT * FROM Reservations WHERE CustomerID = @cid";
-        //        SqlCommand cmd = new SqlCommand(query, conn);
-        //        cmd.Parameters.AddWithValue("@cid", customerId);
-
-        //        conn.Open();
-        //        SqlDataReader reader = cmd.ExecuteReader();
-        //        if (!reader.HasRows)
-        //        {
-        //            Console.WriteLine("No records found for the given CustomerID.");
-        //        }
-
-        //        while (reader.Read())
-        //        {
-        //            Console.WriteLine($"BookingID: {reader["BookingID"]}, TravelDate: {reader["TravelDate"]}, Class: {reader["Class"]}, IsCancelled: {reader["IsCancelled"]}");
-        //        }
-        //    }
-        //}
+       
 
         public void ViewTicketDetails(int customerId)
         {
@@ -282,12 +262,74 @@ namespace MiniProject
             }
         }
 
-        public List<(int TrainNo, string StartPoint, string DestinationPoint, string RunningDays)> GetMatchingTrains(string source, string destination, string dayOfWeek)
+    
+        public  void ViewTrains()
         {
-            var trains = new List<(int, string, string, string)>();
+           
+
+            string query = @"
+            SELECT 
+                t.TrainNo,
+                t.StartPoint,
+                t.DestinationPoint,
+                t.RunningDays,
+                td.GeneralSeats,
+                td.SittingSeats,
+                td.SleeperSeats,
+                td.AC2Seats,
+                td.AC1Seats,
+                td.GeneralPrice,
+                td.SittingPrice,
+                td.SleeperPrice,
+                td.AC2Price,
+                td.AC1Price
+            FROM Trains t
+            INNER JOIN TrainDetails td ON t.TrainNo = td.TrainNo
+            WHERE t.IsDeleted = 0";
+
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
-                string query = "SELECT TrainNo, StartPoint, DestinationPoint, RunningDays FROM Trains WHERE StartPoint = @src AND DestinationPoint = @dest AND RunningDays LIKE '%' + @day + '%'  AND IsDeleted = 0";
+                SqlCommand cmd = new SqlCommand(query, conn);
+
+                try
+                {
+                    conn.Open();
+                    SqlDataReader reader = cmd.ExecuteReader();
+
+                    while (reader.Read())
+                    {
+                        Console.WriteLine($"Train No: {reader["TrainNo"]}, From: {reader["StartPoint"]}, To: {reader["DestinationPoint"]}, Days: {reader["RunningDays"]}");
+                        Console.WriteLine($"Seats - General: {reader["GeneralSeats"]}, Sitting: {reader["SittingSeats"]}, Sleeper: {reader["SleeperSeats"]}, AC2: {reader["AC2Seats"]}, AC1: {reader["AC1Seats"]}");
+                        Console.WriteLine($"Prices - General: {reader["GeneralPrice"]}, Sitting: {reader["SittingPrice"]}, Sleeper: {reader["SleeperPrice"]}, AC2: {reader["AC2Price"]}, AC1: {reader["AC1Price"]}");
+                        Console.WriteLine(new string('-', 80));
+                    }
+
+                    reader.Close();
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("Error: " + ex.Message);
+                }
+            }
+    }
+
+
+    public List<(int TrainNo, string StartPoint, string DestinationPoint, string RunningDays, int GeneralSeats, int SittingSeats, int SleeperSeats, int AC2Seats, int AC1Seats, decimal GeneralPrice, decimal SittingPrice, decimal SleeperPrice, decimal AC2Price, decimal AC1Price)> GetMatchingTrainsWithDetails(string source, string destination, string dayOfWeek)
+        {
+            var trains = new List<(int, string, string, string, int, int, int, int, int, decimal, decimal, decimal, decimal, decimal)>();
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                string query = @"
+            SELECT 
+                t.TrainNo, t.StartPoint, t.DestinationPoint, t.RunningDays,
+                td.GeneralSeats, td.SittingSeats, td.SleeperSeats, td.AC2Seats, td.AC1Seats,
+                td.GeneralPrice, td.SittingPrice, td.SleeperPrice, td.AC2Price, td.AC1Price
+            FROM Trains t
+            INNER JOIN TrainDetails td ON t.TrainNo = td.TrainNo
+            WHERE t.StartPoint = @src AND t.DestinationPoint = @dest 
+                AND t.RunningDays LIKE '%' + @day + '%' 
+                AND t.IsDeleted = 0";
+
                 SqlCommand cmd = new SqlCommand(query, conn);
                 cmd.Parameters.AddWithValue("@src", source);
                 cmd.Parameters.AddWithValue("@dest", destination);
@@ -301,7 +343,17 @@ namespace MiniProject
                         Convert.ToInt32(reader["TrainNo"]),
                         reader["StartPoint"].ToString(),
                         reader["DestinationPoint"].ToString(),
-                        reader["RunningDays"].ToString()
+                        reader["RunningDays"].ToString(),
+                        Convert.ToInt32(reader["GeneralSeats"]),
+                        Convert.ToInt32(reader["SittingSeats"]),
+                        Convert.ToInt32(reader["SleeperSeats"]),
+                        Convert.ToInt32(reader["AC2Seats"]),
+                        Convert.ToInt32(reader["AC1Seats"]),
+                        Convert.ToDecimal(reader["GeneralPrice"]),
+                        Convert.ToDecimal(reader["SittingPrice"]),
+                        Convert.ToDecimal(reader["SleeperPrice"]),
+                        Convert.ToDecimal(reader["AC2Price"]),
+                        Convert.ToDecimal(reader["AC1Price"])
                     ));
                 }
             }
@@ -379,32 +431,7 @@ namespace MiniProject
 
             return report;
         }
-        //public void AddTrain(int trainNo, string startPoint, string destinationPoint, string runningDays)
-        //{
-        //    try
-        //    {
-        //        using (SqlConnection conn = new SqlConnection(connectionString))
-        //        {
-        //            string query = "INSERT INTO Trains (TrainNo, StartPoint, DestinationPoint, RunningDays) VALUES (@TrainNo, @Start, @Destination, @Days)";
-        //            SqlCommand cmd = new SqlCommand(query, conn);
-        //            cmd.Parameters.AddWithValue("@TrainNo", trainNo);
-        //            cmd.Parameters.AddWithValue("@Start", startPoint);
-        //            cmd.Parameters.AddWithValue("@Destination", destinationPoint);
-        //            cmd.Parameters.AddWithValue("@Days", runningDays);
-
-        //            conn.Open();
-        //            cmd.ExecuteNonQuery();
-        //            Console.WriteLine("Train Added Successfully.");
-
-
-        //        }
-        //    }
-        //    catch (Exception e)
-        //    {
-        //        Console.WriteLine(e.Message);
-
-        //    }
-        //}
+       
         public void AddTrain(int trainNo, string startPoint, string destinationPoint, string runningDays)
         {
             try
@@ -424,7 +451,10 @@ namespace MiniProject
 
                    
                     Console.WriteLine("Enter General Seats:");
-                    int generalSeats = Convert.ToInt32(Console.ReadLine());
+                   
+                        
+                        int generalSeats = Convert.ToInt32(Console.ReadLine());
+                        
                     Console.WriteLine("Enter Sitting Seats:");
                     int sittingSeats = Convert.ToInt32(Console.ReadLine());
                     Console.WriteLine("Enter Sleeper Seats:");
@@ -478,40 +508,7 @@ namespace MiniProject
         }
 
 
-        //public void DeleteTrain(int trainNo)
-        //{
-        //    using (SqlConnection conn = new SqlConnection(connectionString))
-        //    {
-        //        string query = "DELETE FROM Trains WHERE TrainNo = @TrainNo";
-        //        SqlCommand cmd = new SqlCommand(query, conn);
-        //        cmd.Parameters.AddWithValue("@TrainNo", trainNo);
-
-        //        conn.Open();
-        //        cmd.ExecuteNonQuery();
-        //    }
-        //}
-
-        //public void DeleteTrain(int trainNo)
-        //{
-        //    using (SqlConnection conn = new SqlConnection(connectionString))
-        //    {
-        //        conn.Open();
-
-                
-        //        string deleteDetailsQuery = "DELETE FROM TrainDetails WHERE TrainNo = @TrainNo";
-        //        SqlCommand deleteDetailsCmd = new SqlCommand(deleteDetailsQuery, conn);
-        //        deleteDetailsCmd.Parameters.AddWithValue("@TrainNo", trainNo);
-        //        deleteDetailsCmd.ExecuteNonQuery();
-
-               
-        //        string deleteTrainQuery = "DELETE FROM Trains WHERE TrainNo = @TrainNo";
-        //        SqlCommand deleteTrainCmd = new SqlCommand(deleteTrainQuery, conn);
-        //        deleteTrainCmd.Parameters.AddWithValue("@TrainNo", trainNo);
-        //        deleteTrainCmd.ExecuteNonQuery();
-
-        //        Console.WriteLine("Train and its details deleted successfully.");
-        //    }
-        //}
+       
         public void DeleteTrain(int trainNo)
         {
             using (SqlConnection conn = new SqlConnection(connectionString))
@@ -530,7 +527,14 @@ namespace MiniProject
                 softDeleteTrainCmd.Parameters.AddWithValue("@TrainNo", trainNo);
                 softDeleteTrainCmd.ExecuteNonQuery();
 
-                Console.WriteLine("Train marked as deleted and details removed successfully.");
+                //Cancelling the Tickets
+
+                string cancelReservationsQuery = "UPDATE Reservations SET IsCancelled = 1 WHERE TrainNo = @TrainNo";
+                SqlCommand cancelReservationsCmd = new SqlCommand(cancelReservationsQuery, conn);
+                cancelReservationsCmd.Parameters.AddWithValue("@TrainNo", trainNo);
+                cancelReservationsCmd.ExecuteNonQuery();
+
+                Console.WriteLine("Train marked as deleted and details removed successfully.And the Refund  initiated for the bookings");
             }
         }
 

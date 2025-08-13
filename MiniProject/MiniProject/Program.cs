@@ -115,6 +115,7 @@ namespace MiniProject
             Console.WriteLine("1. Update Train Details");
             Console.WriteLine("2. View Daily Report");
             Console.WriteLine("3. View All Report");
+            Console.WriteLine("4.View All Trains");
 
             int choice = Convert.ToInt32(Console.ReadLine());
 
@@ -129,7 +130,16 @@ namespace MiniProject
                 case 3:
                     ViewAllReports();
                     break;
+                case 4:
+                    ViewTrains();
+                    break;
             }
+        }
+        static void ViewTrains()
+        {
+            db.ViewTrains();
+            Console.ReadLine();
+            AdminMenu();
         }
 
         static void UpdateTrainDetails()
@@ -157,20 +167,6 @@ namespace MiniProject
                     AdminMenu();
                     break;
 
-                //case 2:
-                //    Console.WriteLine("Enter Train No to Update:");
-                //    int updateTrainNo = Convert.ToInt32(Console.ReadLine());
-
-                //    Console.WriteLine("Enter Column Name to Update (e.g., Destination, DepartureTime, ArrivalTime):");
-                //    string columnName = Console.ReadLine();
-
-                //    Console.WriteLine($"Enter New Value for {columnName}:");
-                //    string newValue = Console.ReadLine();
-
-                //    db.UpdateTrainColumn(updateTrainNo, columnName, newValue);
-                //    Console.WriteLine("Train Updated Successfully.");
-                //    AdminMenu();
-                //    break;
 
                 case 2:
                     Console.WriteLine("Enter Train No to Update:");
@@ -300,7 +296,9 @@ namespace MiniProject
 
                 string dayAbbreviation = journeyDate.ToString("ddd");
 
-                var matchingTrains = db.GetMatchingTrains(source, destination, dayAbbreviation);
+               
+                var matchingTrains = db.GetMatchingTrainsWithDetails(source, destination, dayAbbreviation);
+
 
                 if (matchingTrains.Count == 0)
                 {
@@ -310,10 +308,15 @@ namespace MiniProject
                 }
 
                 Console.WriteLine("\nAvailable Trains:");
+                
                 foreach (var train in matchingTrains)
                 {
-                    Console.WriteLine($"Train No: {train.TrainNo}, From: {train.StartPoint}, To: {train.DestinationPoint}, Days: {train.RunningDays}");
+                    Console.WriteLine("============================================================");
+                    Console.WriteLine($"Train No: {train.TrainNo}, From: {train.StartPoint}, To: {train.DestinationPoint}, Runs on: {train.RunningDays}");
+                    Console.WriteLine($"Seats - General: {train.GeneralSeats}, Sitting: {train.SittingSeats}, Sleeper: {train.SleeperSeats}, AC2: {train.AC2Seats}, AC1: {train.AC1Seats}");
+                    Console.WriteLine($"Prices - General: {train.GeneralPrice}, Sitting: {train.SittingPrice}, Sleeper: {train.SleeperPrice}, AC2: {train.AC2Price}, AC1: {train.AC1Price}");
                 }
+
 
                 Console.WriteLine("\nEnter Train No to book:");
                 int trainNo = Convert.ToInt32(Console.ReadLine());
@@ -396,44 +399,7 @@ namespace MiniProject
 
             UserMenu();
         }
-        //static void CancelTicket()
-        //{
-        //    Console.WriteLine("Enter Booking ID:");
-        //    int bid = Convert.ToInt32(Console.ReadLine());
-        //    Console.WriteLine("Enter Refund Amount:");
-        //    decimal refund = Convert.ToDecimal(Console.ReadLine());
-        //    Console.WriteLine("Enter Refund Status:");
-        //    string status = Console.ReadLine();
-
-        //    db.CancelTicket(bid, refund, status);
-        //    Console.WriteLine("Cancellation Initiated.");
-        //}
-
-        //    static void CancelTicket()
-        //{
-        //    Console.WriteLine("Enter Booking ID:");
-        //    int bookingId = Convert.ToInt32(Console.ReadLine());
-
-        //    Console.WriteLine("Are you sure you want to cancel this ticket? (yes/no)");
-        //    string confirmation = Console.ReadLine()?.Trim().ToLower();
-
-        //    if (confirmation == "yes")
-        //    {
-        //        decimal refundAmount = db.CalculateRefundAmount(bookingId);
-        //        db.CancelTicket(bookingId, refundAmount);
-        //        if(refundAmount>0) 
-        //        {
-        //            Console.WriteLine("Refund sucessfull...");
-        //            Console.WriteLine($"{refundAmount} will be refunded within 2 days."); 
-        //        }
-        //        Console.ReadLine();
-        //    }
-        //    else
-        //    {
-        //        Console.WriteLine("Cancellation aborted.");
-        //        Console.ReadLine();
-        //    }
-        //}
+       
         static void CancelTicket()
         {
             Console.WriteLine("Enter Booking ID:");
