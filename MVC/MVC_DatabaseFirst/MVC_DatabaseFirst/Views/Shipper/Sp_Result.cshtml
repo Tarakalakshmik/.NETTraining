@@ -1,0 +1,23 @@
+﻿@model IEnumerable<MVC_DatabaseFirst.Models.CustOrdersOrders_Result>
+@{
+    ViewBag.Title = "Sp_Result";
+}
+
+<h2>Sp_Result</h2>
+
+@*<h2>Enter Customer ID</h2>*@
+
+<form action="Sp_With_Parameter" method="post">
+    <label>Customer ID:</label>
+    <input type="text" name="customerId" />
+    <br /><br />
+    <input type="submit" value="Submit" />
+</form>
+@foreach (var v in Model)
+{
+    <li>Order ID: @v.OrderID</li>
+    <li>Order Date: @v.OrderDate</li>
+    <li>Required Date: @v.RequiredDate</li>
+    <li>Shipped Date: @v.ShippedDate</li>
+    <br />
+}

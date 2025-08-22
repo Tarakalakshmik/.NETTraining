@@ -1,0 +1,20 @@
+﻿@model IEnumerable<MVC_DatabaseFirst.Models.Order_Detail>
+@{
+    ViewBag.Title = "MultipleData";
+}
+
+<h2>MultipleData using Dynamic object</h2>
+@foreach(var item in Model)
+            {
+                <ul>
+                    <li>Order Id:@item.OrderID</li>
+                    <li>Customer Name:@item.Customer.ContactName</li>
+                    <ul>
+                        @foreach(var o in item.Order_Detail)
+                {
+                    <li>Product Id:@o.ProductID</li>
+                }
+                    </ul>
+                </ul>
+            }
+
