@@ -1,0 +1,23 @@
+﻿@model CC9.Models.Customer
+@{
+    ViewBag.Title = "CustomerByOrderId";
+}
+
+<h2>Customers with OrderId 10248</h2>
+@if (Model != null)
+{
+    <ul>
+        <li>Customer ID:@Model.CustomerID</li>
+        <li>Company Name: @Model.CompanyName</li>
+        <li>Contact Name: @Model.ContactName</li>
+        <li>Country: @Model.Country</li>
+        <li>City: @Model.City</li>
+        <li>Phone: @Model.Phone</li>
+    </ul>
+}
+else
+{
+    <p>No customer found with the given Order ID</p>
+}
+
+

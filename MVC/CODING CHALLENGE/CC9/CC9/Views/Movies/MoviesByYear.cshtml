@@ -1,0 +1,33 @@
+﻿@model IEnumerable<CC9.Models.Movies>
+
+@{
+    ViewBag.Title = "Movies Released year"];
+}
+
+<h2>@ViewBag.Title</h2>
+
+<form  action="MoviesByYear" method="post">
+<label for="year">Enter Year:</label>
+<input type="number" name="year" id="year" required />
+<button type="submit">Search</button>
+</form>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Director</th>
+            <th>Release Year</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var movie in Model)
+        {
+            <tr>
+                <td>@movie.MovieName</td>
+                <td>@movie.DirectorName</td>
+                <td>@movie.DateOfRelease</td>
+            </tr>
+        }
+    </tbody>
+</table>
