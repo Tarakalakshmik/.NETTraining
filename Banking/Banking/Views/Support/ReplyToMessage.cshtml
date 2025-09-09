@@ -1,0 +1,27 @@
+﻿@model Banking.Models.SupportMessage
+
+@{
+    ViewBag.Title = "Reply to Message";
+}
+
+<h2>Reply to User Message</h2>
+
+<div>
+    <p><strong>User Email:</strong> @Model.UserEmail</p>
+    <p><strong>Subject:</strong> @Model.Subject</p>
+    <p><strong>Message:</strong> @Model.Message</p>
+    <p><strong>Sent At:</strong> @Model.SentAt</p>
+</div>
+
+@using (Html.BeginForm("ReplyToMessage", "Support", FormMethod.Post))
+{
+    @Html.HiddenFor(model => model.Id)
+
+    <div>
+        <label for="reply">Your Reply:</label><br />
+        <textarea name="reply" id="reply" rows="5" cols="60" required></textarea>
+    </div>
+
+    <br />
+    <input type="submit" value="Send Reply" class="btn btn-primary" />
+}

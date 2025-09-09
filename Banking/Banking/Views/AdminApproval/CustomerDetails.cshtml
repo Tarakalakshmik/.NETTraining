@@ -1,0 +1,56 @@
+﻿@model Banking.Models.Customer
+@{
+    ViewBag.Title = "Customer Details";
+    var sent = ViewBag.SentTransactions as List<Banking.Models.Transaction_Details>;
+    var received = ViewBag.ReceivedTransactions as List<Banking.Models.Transaction_Details>;
+}
+
+<h2>Customer Details</h2>
+
+<div class="panel panel-default">
+    <div class="panel-heading"><strong>Basic Info</strong></div>
+    <div class="panel-body">
+        <p><strong>Customer ID:</strong> @Model.Customer_Id</p>
+        <p><strong>Residential Address:</strong> @Model.Residential_Address</p>
+        <p><strong>Balance:</strong> @Model.Accounts.First().Balance.ToString()</p>
+       
+    </div>
+</div>
+
+<h3>Recent Transactions</h3>
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>Transaction ID</th>
+            <th>Date</th>
+            <th>Type</th>
+            <th>Amount</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (received != null)
+        {
+            foreach (var txn in received)
+            {
+                <tr style="color: green;">
+                    <td>@txn.Transaction_Id</td>
+                    <td>@txn.Transaction_Date.ToString()</td>
+                    <td>Credit</td>
+                    <td>@txn.Amount</td>
+                </tr>
+            }
+        }
+        @if (sent != null)
+        {
+            foreach (var txn in sent)
+            {
+                <tr style="color: red;">
+                    <td>@txn.Transaction_Id</td>
+                    <td>@txn.Transaction_Date.ToString()</td>
+                    <td>Debit</td>
+                    <td>@txn.Amount</td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>

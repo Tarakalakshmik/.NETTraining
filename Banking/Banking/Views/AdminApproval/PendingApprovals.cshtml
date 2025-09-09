@@ -1,0 +1,65 @@
+﻿
+@model IEnumerable<Banking.Models.RegisterAccount>
+@{
+    ViewBag.Title = "PendingApprovals";
+}
+
+<h2>Pending Approvals</h2>
+<style>
+    body::before {
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url('/Content/Images/logo.png'); /* Update path as needed */
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 800px;
+        opacity: 0.1; /* Only affects the image */
+        z-index: 0;
+        pointer-events: none; /* Allows clicks to pass through */
+    }
+
+        .content-wrapper, .navbar, footer, .dashboard-row {
+            position: relative;
+            z-index: 1;
+        }
+    </style>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Service Ref No</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Mobile</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var user in Model)
+        {
+            <tr>
+                <td>@user.Service_Reference_Number</td>
+                <td>@user.First_Name @user.Last_Name</td>
+                <td>@user.Email_Id</td>
+                <td>@user.Mobile_Number</td>
+                <td>
+                    @Html.ActionLink("View Details", "ViewDetails", new { id = user.Service_Reference_Number }, new { @class = "btn btn-info", style = "margin-left:10px;" })
+                    @Html.ActionLink("Approve", "Approve", new { id = user.Service_Reference_Number }, new { @class = "btn btn-success" })
+
+                    @using (Html.BeginForm("Reject", "AdminApproval", FormMethod.Post))
+                    {
+                        @Html.Hidden("serviceReferenceNumber", user.Service_Reference_Number)
+                        @Html.Hidden("id", Session["AdminId"]) <!-- Replace with actual admin ID if needed -->
+                        <input type="text" name="remarks" color="red" placeholder="Enter remarks" required style="margin-top:5px;" />
+                        <input type="submit" value="Reject" class="btn btn-danger" style="margin-top:5px;" />
+                    }
+
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+

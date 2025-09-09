@@ -1,0 +1,57 @@
+﻿@model IEnumerable<Banking.Models.Transaction_Details>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Transaction Details</h2>
+
+<form method="get" action="@Url.Action("Index", "Reports")">
+    <label for="filter">Select Duration:</label>
+    <select name="filter" id="filter" onchange="toggleDateFields(this.value)">
+        <option value="Today">Today</option>
+        <option value="Week">Last 1 Week</option>
+        <option value="Month">Last 1 Month</option>
+        <option value="Custom">Custom Range</option>
+    </select>
+
+    <div id="customDates" style="display:none;">
+        <label>From:</label>
+        <input type="date" name="fromDate" />
+        <label>To:</label>
+        <input type="date" name="toDate" />
+    </div>
+
+    <button type="submit">Get Transactions</button>
+</form>
+
+<script>
+    function toggleDateFields(value) {
+        document.getElementById("customDates").style.display = value === "Custom" ? "block" : "none";
+    }
+</script>
+
+<table border="1">
+    <tr>
+        <th>Transaction ID</th>
+        <th>From Account</th>
+        <th>To Account</th>
+        <th>Mode</th>
+        <th>Type</th>
+        <th>Amount</th>
+        <th>Date</th>
+        <th>Remarks</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.Transaction_Id</td>
+            <td>@item.From_Account</td>
+            <td>@item.To_Account</td>
+            <td>@item.Transaction_Mode</td>
+            <td>@item.Transaction_Type</td>
+            <td>@item.Amount</td>
+            <td>@item.Transaction_Date?.ToString("dd-MM-yyyy HH:mm")</td>
+            <td>@item.Remarks</td>
+        </tr>
+    }
+</table>

@@ -1,0 +1,32 @@
+﻿@model Banking.Models.RegisterAccount
+@{
+    ViewBag.Title = "ViewDetails";
+}
+
+
+
+<h2>User Details</h2>
+
+<table class="table table-bordered">
+    <tr><th>Service Reference Number</th><td>@Model.Service_Reference_Number</td></tr>
+    <tr><th>Title</th><td>@Model.Title</td></tr>
+    <tr><th>First Name</th><td>@Model.First_Name</td></tr>
+    <tr><th>Middle Name</th><td>@Model.Middle_Name</td></tr>
+    <tr><th>Last Name</th><td>@Model.Last_Name</td></tr>
+    <tr><th>Father's Name</th><td>@Model.Father_Name</td></tr>
+    <tr><th>Mobile Number</th><td>@Model.Mobile_Number</td></tr>
+    <tr><th>Email ID</th><td>@Model.Email_Id</td></tr>
+    <tr><th>Aadhar</th><td>@Model.Aadhar</td></tr>
+    <tr><th>Gender</th><td>@Model.Gender</td></tr>
+    <tr><th>Date of Birth</th><td>@Model.Date_Of_Birth.ToShortDateString()</td></tr>
+    <tr><th>Residential Address</th><td>@Model.Residential_Address</td></tr>
+    <tr><th>Permanent Address</th><td>@Model.Permanent_Address</td></tr>
+    <tr><th>Occupation Type</th><td>@Model.Occupation_Type</td></tr>
+    <tr><th>Source of Income</th><td>@Model.Source_Of_Income</td></tr>
+    <tr><th>Gross Annual Income</th><td>@Model.Gross_Annual_Income</td></tr>
+    <tr><th>Opted for Debit Card</th><td>@((bool)Model.Opt_Debit_Card ? "Yes" : "No")</td></tr>
+    <tr><th>Opted for Net Banking</th><td>@((bool)Model.Opt_Net_Banking ? "Yes" : "No")</td></tr>
+</table>
+Approval
+<a href="@Url.Action("PendingApprovals", "AdminApproval")" class="btn btn-secondary">Back to Pending Approvals</a>
+

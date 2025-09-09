@@ -1,0 +1,28 @@
+﻿@model Banking.Models.SupportMessage
+@{
+    ViewBag.Title = "SendSupportMessage";
+}
+
+<h2>Contact Support</h2>
+
+@using (Html.BeginForm("SendSupportMessage", "Support", FormMethod.Post))
+{
+    <label>Your Email:</label>
+    @Html.TextBoxFor(m => m.UserEmail)
+    
+    <label>Subject:</label>
+    @Html.TextBoxFor(m => m.Subject)
+
+    <label>Message:</label>
+    @Html.TextAreaFor(m => m.Message, 5, 40, null)
+
+    <input type="submit" value="Send Message" />
+}
+
+@if (ViewBag.Status != null)
+{
+    <p>@ViewBag.Status</p>
+}
+
+
+

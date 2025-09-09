@@ -1,0 +1,227 @@
+﻿
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title-Online Banking</title>
+
+    <style>
+        .dashboard-row {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 30px;
+            margin: 30px auto;
+            max-width: 1400px;
+            padding: 0 30px;
+        }
+
+        .dashboard-card {
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            padding: 20px;
+            height: 200px;
+            flex: 1 1 calc(33.333% - 30px); /* 3 cards with spacing */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            min-width: 280px;
+        }
+
+            .dashboard-card h4 {
+                font-weight: 600;
+                margin-bottom: 10px;
+            }
+
+            .dashboard-card p {
+                font-size: 18px;
+                margin: 0;
+            }
+    </style>
+
+
+
+
+    <style>
+        html, body {
+            height: 100%;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .body-content {
+            flex: 1; /* pushes footer down */
+        }
+
+        footer {
+            background-color: #f5f5f5;
+            text-align: center;
+            padding: 10px 0;
+            border-top: 1px solid #ddd;
+            color: #333;
+        }
+    </style>
+    <style>
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('/Content/Images/logo.png'); /* Update path as needed */
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: 400px;
+            opacity: 0.05; /* Only affects the image */
+            z-index: 0;
+            pointer-events: none; /* Allows clicks to pass through */
+        }
+
+        .content-wrapper, .navbar, footer, .dashboard-row {
+            position: relative;
+            z-index: 1;
+        }
+    </style>
+   
+
+    <style>
+        #bankingCarousel .carousel-inner > .item > img {
+            width: 100%;
+            height: auto;
+            max-height: 500px; /* Adjust as needed */
+            object-fit: cover;
+        }
+
+        #bankingCarousel {
+            margin-top: 10px; /* Push below navbar */
+        }
+    </style>
+
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <ul class="nav navbar-nav navbar-right">
+
+                        <li>@Html.ActionLink("Transaction Details", "Index", "Reports")</li>
+                        <li>@Html.ActionLink("New Accounts Approval", "PendingApprovals", "AdminApproval")</li>
+                        <li>@Html.ActionLink("Logout", "Logout", "AdminApproval")</li>
+
+
+
+
+
+
+
+                    </ul>
+
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div style="background-color: #dff0d8; color: #3c763d; font-weight: bold; padding: 10px 0;margin-top:10px">
+        <marquee behavior="scroll" direction="left" scrollamount="6">
+            🎉 Welcome to Online Banking! Enjoy secure, fast, and reliable services. 💳 Open your account today and get exclusive benefits! 🚀
+        </marquee>
+    </div>
+    <div id="bankingCarousel" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+            <li data-target="#bankingCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#bankingCarousel" data-slide-to="1"></li>
+            <li data-target="#bankingCarousel" data-slide-to="2"></li>
+        </ol>
+
+        <div class="carousel-inner">
+            <div class="item active">
+                <img src="~/Content/Images/users.png" alt="10 Million Users" class="img-responsive">
+                <div class="carousel-caption">
+                    <h3>10 Million+ Users</h3>
+                    <p>Trusted by millions across the country</p>
+                </div>
+            </div>
+
+            <div class="item">
+                <img src="~/Content/Images/investors.png" alt="100 Investors" class="img-responsive">
+                <div class="carousel-caption">
+                    <h3>100+ Trusted Investors</h3>
+                    <p>Backed by leading financial institutions</p>
+                </div>
+            </div>
+
+            <div class="item">
+                <img src="~/Content/Images/growth.png" alt="Certified Growth" class="img-responsive">
+                <div class="carousel-caption">
+                    <h3>Certified Growth</h3>
+                    <p>Recognized as a fast-growing digital bank</p>
+                </div>
+            </div>
+        </div>
+
+        <a class="left carousel-control" href="#bankingCarousel" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left"></span>
+        </a>
+        <a class="right carousel-control" href="#bankingCarousel" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right"></span>
+        </a>
+    </div>
+    <div class="dashboard-row">
+        <div class="dashboard-card bg-info text-white">
+            <h4>Applicants Awaiting Approval</h4>
+            <p><span id="approvalCount">Loading...</span> pending</p>
+        </div>
+        <div class="dashboard-card bg-success text-dark">
+            <h4>Customer Count</h4>
+            <p><span id="customerCount">Loading...</span>Customers</p>
+        </div>
+        <div class="dashboard-card bg-warning text-dark">
+            <h4>Support Messages Pending</h4>
+            <p><span id="messageCount">Loading...</span> to respond</p>
+        </div>
+    </div>
+
+
+    <div class="container body-content">
+        @RenderBody()
+
+
+    </div>
+    <footer>
+        <p>&copy; @DateTime.Now.Year - Online Banking</p>
+    </footer>
+
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+    <script>
+        $(document).ready(function () {
+            $.getJSON('/AdminApproval/GetDashboardCounts', function (data) {
+                $('#approvalCount').text(data.approvalCount);
+                $('#messageCount').text(data.messageCount);
+                $('#customerCount').text(data.customerCount);
+            });
+        });
+    </script>
+</body>
+</html>

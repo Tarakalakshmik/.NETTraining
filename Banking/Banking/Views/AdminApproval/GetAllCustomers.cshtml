@@ -1,0 +1,46 @@
+﻿@model IEnumerable<Banking.Models.Customer>
+@{
+    ViewBag.Title = "GetAllCustomers";
+}
+
+<h2>Get All Customers</h2>
+<form method="get" action="@Url.Action("GetAllCustomers", "AdminApproval")" style="text-align: center; margin-bottom: 30px;">
+    <input type="text" name="searchTerm" class="form-control" placeholder="Search by name, email, or mobile"
+           style="width: 50%; display: inline-block; margin-right: 10px;" />
+    <button type="submit" class="btn btn-primary">Search</button>
+</form>
+
+
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+
+            <th>Account No</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Mobile</th>
+            <th>Actions</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var customer in Model)
+        {
+            <tr>
+
+                <td>@customer.Accounts.First().Account_Number.ToString()</td>
+                <td>@customer.First_Name</td>
+                <td>@customer.Email_Id</td>
+                <td>@customer.Mobile_Number</td>
+                <td>
+                    <a href="@Url.Action("CustomerDetails", "AdminApproval", new { id = customer.Customer_Id })" title="View Details">
+                        <span class="glyphicon glyphicon-eye-open"></span>
+                    </a>
+                </td>
+
+            </tr>
+        }
+    </tbody>
+</table>
+
+
