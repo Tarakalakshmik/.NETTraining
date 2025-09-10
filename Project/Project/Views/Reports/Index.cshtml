@@ -1,0 +1,146 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    var maxDate = DateTime.Now.ToString("yyyy-MM-dd");
+}
+
+
+
+
+<div class="full-page-container">
+    <div class="headers" style="border:1px solid #ccc;">Transaction Details</div>
+
+    <form method="get" action="@Url.Action("Index", "Reports")">
+        <div class="form-row">
+            <div class="form-group">
+                <label for="filter">Select Duration:</label>
+                <select name="filter" id="filter" onchange="toggleDateFields(this.value)">
+                    <option value="Today">Today</option>
+                    <option value="Week">Last 1 Week</option>
+                    <option value="Month">Last 1 Month</option>
+                    <option value="Custom">Custom Range</option>
+                </select>
+
+                <div id="customDates" style="display:none;">
+                    <label>From:</label>
+                    <input type="date" name="fromDate" max="@maxDate" />
+                    <label>To:</label>
+                    <input type="date" name="toDate" max="@maxDate" />
+                </div>
+
+                <button type="submit" class="btn">Get Transactions</button>
+            </div>
+        </div>
+    </form>
+
+    @if (Model != null && Model.Count > 0)
+    {
+        <table class="flex-table" border="1">
+            <thead>
+                <tr class="flex-row">
+                    <th>Transaction ID</th>
+                    <th>From Account</th>
+                    <th>To Account</th>
+                    <th>Mode</th>
+                    <th>Type</th>
+                    <th>Amount</th>
+                    <th>Date</th>
+                    <th>Remarks</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var t in Model)
+                {
+                    <tr>
+                        <td>@t.Transaction_Id</td>
+                        <td>@t.From_Account</td>
+                        <td>@t.To_Account</td>
+                        <td>@t.Transaction_Mode</td>
+                        <td>@t.Transaction_Type</td>
+                        <td>@t.Amount</td>
+                        <td>@t.Transaction_Date.ToString("dd-MM-yyyy")</td>
+                        <td>@t.Remarks</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+</div>
+<script>
+    function toggleDateFields(value) {
+        const customDates = document.getElementById("customDates");
+        if (value === "Custom") {
+            customDates.style.display = "block";
+        } else {
+            customDates.style.display = "none";
+        }
+    }
+</script>
+
+
+<style>
+
+    .form-group label[for="filter"] {
+        width: 120px;
+        text-align: left;
+        padding: 5px;
+    }
+
+
+    #customDates label {
+        width: 40px;
+        margin-right: 5px;
+        padding: 0;
+    }
+
+
+    .full-page-container {
+        width: 100%;
+        margin: 0 !important;
+        box-sizing: border-box;
+        border: 1px solid #ccc
+    }
+
+    .headers {
+        background-color: #1877F2;
+        color: white;
+        font-size: 24px;
+        font-weight: 600;
+        text-align: center;
+        padding: 10px 0;
+    }
+
+    .form-group {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+        .form-group label {
+            width: 120px;
+            text-align: left;
+            padding: 5px;
+        }
+
+    .form-row input {
+        width: 150px;
+    }
+
+
+    .btn {
+        background-color: #1877F2;
+        color: white;
+        margin: 10px;
+    }
+
+    .flex-table {
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+        .flex-table th, .flex-table td {
+            border: 1px solid #ccc;
+            padding: 5px;
+            text-align: center;
+        }
+</style>
